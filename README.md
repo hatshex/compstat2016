@@ -1,8 +1,6 @@
-# compstat2016
 # Estadística computacional
 ### PROFESOR: Mauricio B. García Tec
 ### EMAIL: mauricio.garcia@itam.mx
-### URL: 
 
 ## Temario
 * Generación de Números Aleatorios
