@@ -1,6 +1,8 @@
 # Estadística computacional
-### PROFESOR: Mauricio B. García Tec
-### EMAIL: mauricio.garcia@itam.mx
+* Profesor
+  + Mauricio B. García Tec
+* Correo
+  + mauricio.garcia@itam.mx
 
 ## Temario
 * Generación de Números Aleatorios
