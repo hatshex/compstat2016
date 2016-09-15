@@ -26,3 +26,5 @@
 
 ## Referencias
 * [Markov Chain Monte Carlo and R](http://nicercode.github.io/guides/mcmc/)
+* [An Introduction to Markov Chain Monte Carlo](http://users.stat.umn.edu/~galin/IntroMCMC.pdf)
+* Approximating Integrals via Monte Carlo and Deterministic Methods[]
