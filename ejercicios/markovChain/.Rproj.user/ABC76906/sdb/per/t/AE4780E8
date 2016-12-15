@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(Rcpp)\nsourceCpp('cppFunctions.cpp')\ntimesTwo(c(15,30))\nsampleC(c(.5,.5))\n\nmat <-  matrix (c(.5, .5, .2 ,.8), byrow = TRUE, nrow = 2)\ndimnames(mat)<-list(c(\"sol\", \"lluvia\"),c(\"sol\", \"lluvia\"))\nmat\n\nmc_transition(1,mat)\ntraj <- mc_trajectory(init_state = 1, nobs = 100, trans_mat = mat)\ndict <- c(\"1\" = \"sol\", \"2\"=\"lluvia\")\ndict[traj]",
+    "created" : 1474506638434.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4190671029",
+    "id" : "AE4780E8",
+    "lastKnownWriteTime" : 1474521072,
+    "last_content_update" : 1474521071495,
+    "path" : "E:/itam/2016 Verano/compstat2016/ejercicios/markovChain/test_script.R",
+    "project_path" : "test_script.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : true,
+    "source_window" : "",
+    "type" : "r_source"
+}

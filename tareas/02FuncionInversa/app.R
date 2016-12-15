@@ -23,9 +23,9 @@ ui <- dashboardPage(
     sliderInput("nsim", "Número de simulaciones:", 10,10000, 1500),
     sliderInput("lambda",
                 "Asigne un número para lambda:",
-                min = 0.00000000000001,
+                min = 0.0000000001,
                 max = 10,
-                value = 0.00000005
+                value = 0.05
     )
   ),
   dashboardBody(

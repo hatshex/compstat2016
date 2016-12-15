@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "\n#include <Rcpp.h>\nusing namespace Rcpp;\n\n// This is a simple example of exporting a C++ function to R. You can\n// source this function into an R session using the Rcpp::sourceCpp \n// function (or via the Source button on the editor toolbar). Learn\n// more about Rcpp at:\n//\n//   http://www.rcpp.org/\n//   http://adv-r.had.co.nz/Rcpp.html\n//   http://gallery.rcpp.org/\n//\n\n// [[Rcpp::export]]\nRcpp::NumericVector timesTwo(Rcpp::NumericVector x) {\n  return x * 2;\n}\n\n// [[Rcpp::export]]\nint sampleC(Rcpp::NumericVector prob)\n  {\n    // comprobamos que la probabilidad sume 1\n    prob =  prob / Rcpp::sum(prob);\n    Rcpp::NumericVector cumprob = Rcpp::cumsum(prob);\n    //runif regresa un NumericVector que es un arreglo de doubles\n    double u = Rcpp::runif(1)[0];\n    int i = 0;\n    while(cumprob[i]<u)\n    {\n      i++;\n    }\n    // vamos a trabajar con indices que empiezan en uno\n    return i+1;    \n  }\n\n// [[Rcpp::export]]\nint mc_transition (int current_state, Rcpp::NumericMatrix trans_mat)\n{\n  //Rcpp::_se vuelve _ si incluyen el namespace\n  Rcpp::NumericVector prob = trans_mat(current_state-1, Rcpp::_);\n  int new_state = sampleC(prob);\n  return new_state;\n}\n\n// [[Rcpp::export]]\nRcpp::NumericVector mc_trajectory(int init_state, int nobs, Rcpp::NumericMatrix trans_mat)\n  {\n  //Llama al constructor de clase NumericVector\n  Rcpp::NumericVector trajectory(nobs + 1);  \n  trajectory[0] = init_state;  \n  for(int i=0; i < nobs; i++)\n  {\n    trajectory[i + 1] = mc_transition(trajectory[i], trans_mat);\n  }\n  return trajectory;\n  }\n// You can include R code blocks in C++ files processed with sourceCpp\n// (useful for testing and development). The R code will be automatically \n// run after the compilation.\n//\n\n",
+    "created" : 1474506441563.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1513922106",
+    "id" : "72510597",
+    "lastKnownWriteTime" : 1474509514,
+    "last_content_update" : 1474509512152,
+    "path" : "E:/itam/2016 Verano/compstat2016/ejercicios/markovChain/cppFunctions.cpp",
+    "project_path" : "cppFunctions.cpp",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : true,
+    "source_window" : "",
+    "type" : "cpp"
+}

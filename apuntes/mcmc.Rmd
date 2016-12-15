@@ -1,0 +1,105 @@
+---
+title: "R Notebook"
+output:
+  html_document: default
+  html_notebook: default
+autor: Gabs
+---
+
+# MCMC Markov Chain Monte Carlo
+__Motivación:__  Modelación de sistemas físicos
+nuevo estado = f(estado actual)
+
+## Cadenas de Markov
+Nuevo estado = f ( estado actual, aleatoriedad)
+Se componen de 2 cosas:
+    * Item 1
+    * Conjunto de posibles estados
+    * Unas __"reglas"__ que determinan las probabilidades de transición.
+
+#### Ejemplo 1: Modelo climático:
+estados = {lluvia, sol}
+    * P(lluvia mañana | hoy sol)= .2
+    * P(sol mañana | hoy lluvia)= .4
+    * P(lluvia mañana | hay lluvia)=.6
+    * P(sol mañana | sol hoy)=.8
+
+#### Ejemplo 2: Google Page Rank:
+Cuando en un buscador hacen un query, un algoritmo de búsqueda genera una lista de candidatos asociados al query.
+El problema es qué orden presentarle al usuario esos candidatos.
+
+Modelo:
+  
+  * Estados= {páginas web en la lista de candidatos}
+  * Probabilidades de transición: Se obtienen /estiman por diversos métodos entre los cuales están:
+    + Contar links de una página a otra....
+    + Contar clics.
+    + Se hace un análisis del comportamiento de la cadena para saber cuánto tiempo un usuario pasa en cada estado.
+    + Los candidatos se ordenan según el tiempo por página.
+    
+### Definición de cadena de Markov
+  1 __Definición de un proceso estocástico:__ es una sucesión $\{X_t\}_{t ∈ T}$ de variables aleatorias que toman valores en el mismo conjunto llamado "conjunto de estados".
+  El parámetro t representa el tiempo.
+  T es el "espacio parametral" (T=0,1,2.... T = [0,$\infty$)
+  Vamos a estudiar primero el caso donde el conjunto de estados es discreto y T={0,1,2....} 
+  
+  2 El proceso tiene la propiedad de Markov
+  P($X_t= xt$|$X_0=x_0,.... X_t-1=x_t-1,$) = P($X_t=x_t | X_t-1 = x_t-1$) 
+ i 
+### Propiedad de homogeneidad:
+3 En una cadena de MArkov las reglas de transición entre estados no dependen del tiempo.
+Probabilidades de transición -> $P_ij = P(X_{t+1} = j | X_t=i) = P(X_1 j | X_o=i)$
+
+Las probas d  e transcisión entre estados dependen solo de los estados y no del tiempo:
+$ \forall t P(X_{t+1}=j | X_{t}=i) = P(X_{i}=j | X_{0}=i)$
+
+¿Cómo las represento?
+Como una matriz P donde $ P_{ij} = P(X_{1}=j|X_{0}=i) $ si el conjunto de datos es discreto.
+
+Propiedad algebraica bonita 
+$ P^n $ contiene las entradas $P_{ij}=P(X_{n}=j|X_{0}) $
+  
+Las probas de transición se visualizan en un diagrama de transición y en una matriz de transición.
+
+**__Nota: Las filas suman 1__**
+
+### Transición en "n" pasos
+¿ $P(X_t=j|X_0=i)$ ?
+
+Resultado: $P^t contiene en su entrada (i,j) a P(X_f = j | X_0=i)$
+
+Explicación:
+$P(X_t=j|X_0=i) = \sum_{K} P(X_t=j|X_0=i, X_1=k)P_{ik}$
+..... falta texto
+
+De ahí se concluye que las entradas de $P^t$ son $P(X_t=j|X_o=i)$
+
+### Cuando trabajamos con cadenas de estados continuos
+$P(X_{t}=x)$ no tiene sentido: 
+
+$$  
+
+\begin{Bmatrix}
+
+P(X=x)=0  \\
+\forall X v.a. continua
+
+ \end{Bmatrix}
+
+$$
+
+Lo que se hace es usar la función de densidad:
+Recordatorio 
+$$
+
+X_{continua} -> P(a<= x <= b) = \int_{a}^{b} f_{X}(x)dx\\
+                f_{x} función de densidad de x
+$$
+
+En cadenas de Markov a estados continuos la propiedad de Markov debe decir
+$ f_{x_{t+1}} (X_{t+1}| X_{0}=x_{0}, ... X_{t}=x_{t}) = f_{x_{t+1} (X_{t+1}|X_{t}=x_{t})$
+y en vez de matriz de transición hay una función o kernel de transición
+
+$$
+f(i,j) = f_{X_{t+1}(j|X_{t}=i)}
+$$

@@ -1,8 +1,8 @@
 # Estadística computacional
 * Profesor
-  + Mauricio B. García Tec
++ Mauricio B. García Tec
 * Correo
-  + mauricio.garcia@itam.mx
++ mauricio.garcia@itam.mx
 
 ## Temario
 * Generación de Números Aleatorios
@@ -15,7 +15,7 @@
 * Givens & Hoeting. Computational Statistics
 * Eubank & Kupresanin. Statistical Computing in C++ and R
 * Rizzo. Statistical Computing with R
-* [Notas elaboradas por el profesor del curso.](https://drive.google.com/a/ci.itam.mx/folderview?id=0B7Tg1xWzgPFafnU4bUstR3VxOWNCNXc1dEdDd1MzLWkyeS1vTjBjOHkwMElLNTVyNEQxSjQ&usp=sharing​)
+* [Notas elaboradas por el profesor del curso.](https://drive.google.com/a/ci.itam.mx/folderview?id=0B7Tg1xWzgPFafnU4bUstR3VxOWNCNXc1dEdDd1MzLWkyeS1vTjBjOHkwMElLNTVyNEQxSjQ&usp=sharing)
 
 ## Recomendaciones
 * Buenos conocimientos de Probabilidad y Estadística (el capítulo introductorio en el Givens & Hoeting)
